@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e
+
+RUN_TEST_LOCAL=0 make -f debian/rules run_test_suite

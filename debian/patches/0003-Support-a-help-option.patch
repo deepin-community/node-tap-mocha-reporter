@@ -1,0 +1,24 @@
+From 2df81d586112bc41df819a60c88711098089d9b5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bastien=20ROUCARI=C3=88S?= <roucaries.bastien@gmail.com>
+Date: Tue, 22 Aug 2017 14:46:56 +0200
+Subject: Support a --help option
+
+forwarded: yes, https://github.com/lyroyce/mocha-tap-reporter/issues/5
+bug: https://github.com/lyroyce/mocha-tap-reporter/issues/5
+---
+ index.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/index.js b/index.js
+index 46c5663..8b2fc07 100755
+--- a/index.js
++++ b/index.js
+@@ -99,7 +99,7 @@ reporter.  (Note that some reporters write to files instead of stdout.)
+ 
+ if (require.main === module) {
+   var type = process.argv[2]
+-  if (!type)
++  if (!type || type == '--help' || type == '-h')
+     return usage()
+ 
+   process.stdin.pipe(new Formatter(type))

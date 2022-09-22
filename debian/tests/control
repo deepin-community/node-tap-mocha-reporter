@@ -1,0 +1,7 @@
+Tests: require
+Depends: node-tap-mocha-reporter, nodejs (>= 6)
+
+Tests: runtestsuite
+Depends: node-tap-mocha-reporter, node-tap (>= 8.0),
+ build-essential, dpkg-dev (>= 1.18.8)
+Restrictions: allow-stderr

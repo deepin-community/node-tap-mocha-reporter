@@ -1,0 +1,51 @@
+Source: node-tap-mocha-reporter
+Section: javascript
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Bastien Roucariès <rouca@debian.org>
+Build-Depends:
+ debhelper (>= 11)
+ , dh-buildinfo
+ , dpkg-dev (>= 1.18.8)
+ , nodejs (>= 6)
+ , node-js-yaml (>= 3.3.1) <!nocheck>
+ , node-debug (>= 2.1.3) <!nocheck>
+ , node-supports-color (>= 3) <!nocheck>
+ , node-escape-string-regexp (>= 1.0.3 ) <!nocheck>
+ , node-strip-ansi (>= 3) <!nocheck>
+ , node-tap-parser (>= 3) <!nocheck>
+ , node-glob (>= 7.0.5) <!nocheck>
+ , node-diff (>= 1.3.2) <!nocheck>
+ , node-tap (>= 8.0) <!nocheck>
+ , docbook2x <!nodoc>
+Standards-Version: 4.1.4
+Homepage: https://github.com/tapjs/tap-mocha-reporter
+Vcs-Git: https://salsa.debian.org/js-team/node-tap-mocha-reporter.git
+Vcs-Browser: https://salsa.debian.org/js-team/node-tap-mocha-reporter
+
+Package: node-tap-mocha-reporter
+Architecture: all
+Depends:
+ ${misc:Depends}
+ , nodejs
+ , node-js-yaml (>= 3.3.1)
+ , node-debug (>= 2.1.3)
+ , node-supports-color (>= 3)
+ , node-escape-string-regexp (>= 1.0.3)
+ , node-tap-parser (>= 3)
+ , node-strip-ansi (>= 3)
+ , node-glob (>= 7.0.5)
+ , node-diff (>= 1.3.2)
+Enhances: node-tap
+Description: Format a TAP stream using Mocha's set of reporters
+ This module allows one to format node-tap output like output
+ of Mocha test framework.
+ .
+ node-tap is a Node.js implementation of TAP a simple text-based interface
+ shared between testing modules implemented in many popular languages.
+ .
+ Mocha is a feature-rich JavaScript test framework running
+ on Node.js and browser, making asynchronous testing
+ simple.
+ .
+ Node.js is an event-based server-side JavaScript engine.

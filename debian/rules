@@ -1,0 +1,100 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+include /usr/share/dpkg/pkg-info.mk
+
+# run the test using local copy instead of installed one
+RUN_TEST_LOCAL?=1
+
+ifeq ($(RUN_TEST_LOCAL),1)
+TAP_MOCHA_JSPATH?=./index.js
+TAP_MOCHA_INSTALL_PATH?=./index.js
+else
+TAP_MOCHA_JSPATH?= tap-mocha-reporter
+TAP_MOCHA_INSTALL_PATH?=/usr/bin/tap-mocha-reporter
+endif
+
+
+# newline for make
+define newline
+
+
+endef
+space := $(subst ,, )
+# remove new line
+RAW2LINE:=$(subst $(newline),,$(1))
+
+# find all reporter supported
+define FIND_REPORTER_JS_RAW
+    'use strict';
+    try {
+	var F = require('$(TAP_MOCHA_JSPATH)');
+	var s = F.types.join(' ')
+		.replace(/\s*$$/g,'')
+		.replace(/^\s*/g,'')
+		.replace(/^\s+/g,' ');
+	process.stdout.write(s);
+	process.exit(0);
+    }
+    catch (e) {
+	process.stderr.write(e);
+	process.exit(1);
+    }
+endef
+
+
+FIND_REPORTER_JS:=$(subst $(newline),,$(FIND_REPORTER_JS_RAW))
+# shell command to get reporter list
+REPORTER_LIST_CMD:=node -pe "$(FIND_REPORTER_JS)"
+
+%:
+	dh $@
+
+#override_dh_auto_build:
+
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
+override_dh_auto_test: run_test_suite
+else
+override_dh_auto_test:
+endif
+
+# run a smoke test
+run_test_suite:
+	set -e; \
+	REPORTER_LIST=`set -e;$(REPORTER_LIST_CMD)`; \
+	echo "List of reporter: $$REPORTER_LIST"; \
+	for r in $$REPORTER_LIST; do  \
+		echo "Use reporter $$r";  \
+		echo "=========================================================" ; \
+		tap test/*.js | $(TAP_MOCHA_INSTALL_PATH) $$r ; \
+		echo "=========================================================" ; \
+	done
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod a+x debian/node-tap-mocha-reporter/usr/lib/nodejs/tap-mocha-reporter/index.js
+
+%.1.xml : %.1.xml.in
+	REPORTER_LIST_PARA=`set -e;$(REPORTER_LIST_CMD) | sed s', ,</para></listitem><listitem><para>,g'`;\
+	sed -e "s/@VERSION@/$(DEB_VERSION_UPSTREAM)/g" -e "s,@LIST_OFENTRY@,$$REPORTER_LIST_PARA,g" $< > $@
+%.1: %.1.xml
+	cd $(dir $<) &&  docbook2x-man --encoding=utf-8 $(notdir $<)
+
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
+override_dh_installman: debian/tap-mocha-reporter.1
+	dh_installman
+else
+override_dh_installman:
+endif
+
+override_dh_installman_clean:
+	rm -rf debian/*.1.xml
+	rm -rf debian/*.1
+
+override_dh_clean: override_dh_installman_clean
+	dh_clean
+
+.PHONY: run_test_suite override_dh_installman_clean

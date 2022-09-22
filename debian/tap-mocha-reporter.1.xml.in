@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<refentry id='tapmochareporter1'>
+  <refmeta>
+    <refentrytitle>tap-mocha-reporter</refentrytitle>
+    <manvolnum>1</manvolnum>
+    <refmiscinfo class='source'>August 2017</refmiscinfo>
+    <refmiscinfo class='manual'>tap-mocha-reporter @VERSION@</refmiscinfo>
+  </refmeta>
+  <refnamediv>
+    <refname>tap-mocha-reporter</refname>
+    <refpurpose>format output of tap using mocha like reporter</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>tap-mocha-reporter</command>
+      <group choice="req">
+	<arg choice="plain">
+	  --help
+	</arg>
+        <arg choice="plain">
+          reporter
+        </arg>
+      </group>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+
+  <refsect1 id='description'><title>DESCRIPTION</title>
+
+  <para> Reads TAP data on stdin, and formats to stdout using the specified
+  reporter.  (Note that some reporters write to files instead of stdout.)</para>
+
+  </refsect1>
+
+  <refsect1>
+    <title>OPTIONS</title>
+    <para>Available reporter format types are:
+    <itemizedlist>
+    <listitem>
+      <para>@LIST_OFENTRY@</para>
+    </listitem>
+    </itemizedlist>
+  </para>
+  
+  </refsect1>
+
+  <refsect1 id="seealso">
+    <title>See Also</title>
+    <simplelist type="inline">
+      <member><citerefentry><refentrytitle>tap</refentrytitle><manvolnum>1</manvolnum></citerefentry></member> 
+    </simplelist>
+  </refsect1>
+
+</refentry>
+
