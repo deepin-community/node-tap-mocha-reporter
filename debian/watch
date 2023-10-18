@@ -1,5 +1,12 @@
-version=3
+version=4
 opts=\
-dversionmangle=s/\+(debian|dfsg|ds|deb)(\.\d+)?$//,\
-filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-tap-mocha-reporter-$1.tar.gz/ \
- https://github.com/isaacs/tap-mocha-reporter/tags .*/archive/v?([\d\.]+).tar.gz
+dversionmangle=auto,\
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-tap-mocha-reporter-$1/ \
+ https://github.com/isaacs/tap-mocha-reporter/tags .*/archive/.*/v?([\d\.]+).tar.gz group
+
+opts=\
+component=unicode-length,\
+ctype=nodejs,\
+dversionmangle=auto,\
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-unicode-length-$1/ \
+ https://github.com/jviotti/unicode-length/tags .*/archive.*/v?([\d\.]+).tar.gz group

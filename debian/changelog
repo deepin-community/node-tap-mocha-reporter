@@ -1,3 +1,54 @@
+node-tap-mocha-reporter (5.0.3+~2.0.2-2) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable
+
+ -- Yadd <yadd@debian.org>  Mon, 25 Apr 2022 09:43:16 +0200
+
+node-tap-mocha-reporter (5.0.3+~2.0.2-1) experimental; urgency=medium
+
+  * Team upload
+  * Embed unicode-length and drop related patch
+  * New upstream version 5.0.3+~2.0.2
+  * Use pkg-js-autopkgtest
+  * Use node-color-support and drop related patch
+  * Require node-tap-parser >= 11
+  * Update copyright
+
+ -- Yadd <yadd@debian.org>  Tue, 12 Apr 2022 18:05:05 +0200
+
+node-tap-mocha-reporter (3.0.7+ds-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * debian/copyright: use spaces rather than tabs to start continuation
+    lines.
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Remove constraints unnecessary since stretch:
+    + Build-Depends: Drop versioned constraint on node-debug, node-diff,
+      node-escape-string-regexp, node-glob, node-js-yaml, node-strip-ansi,
+      node-supports-color, node-tap and node-tap-parser.
+    + node-tap-mocha-reporter: Drop versioned constraint on node-debug,
+      node-diff, node-escape-string-regexp, node-glob, node-js-yaml,
+      node-strip-ansi, node-supports-color and node-tap-parser in Depends.
+
+  [ Yadd ]
+  * Bump debhelper compatibility level to 13
+  * Add "Rules-Requires-Root: no"
+  * Add debian/gbp.conf
+  * Modernize debian/watch
+    * Fix GitHub tags regex
+    * Fix filenamemangle
+  * Update standards version to 4.6.0, no changes needed.
+  * Update nodejs dependency to nodejs:any
+  * Use dh-sequence-nodejs auto install
+
+ -- Yadd <yadd@debian.org>  Sun, 21 Nov 2021 09:25:39 +0100
+
 node-tap-mocha-reporter (3.0.7+ds-1) unstable; urgency=medium
 
   * Repack from git (no tag from upstream)
