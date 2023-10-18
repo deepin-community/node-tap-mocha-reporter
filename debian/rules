@@ -75,7 +75,7 @@ run_test_suite:
 
 override_dh_fixperms:
 	dh_fixperms
-	chmod a+x debian/node-tap-mocha-reporter/usr/lib/nodejs/tap-mocha-reporter/index.js
+	chmod a+x debian/node-tap-mocha-reporter/usr/share/nodejs/tap-mocha-reporter/index.js
 
 %.1.xml : %.1.xml.in
 	REPORTER_LIST_PARA=`set -e;$(REPORTER_LIST_CMD) | sed s', ,</para></listitem><listitem><para>,g'`;\

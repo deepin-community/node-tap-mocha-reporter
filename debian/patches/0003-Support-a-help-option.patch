@@ -9,11 +9,9 @@ bug: https://github.com/lyroyce/mocha-tap-reporter/issues/5
  index.js | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/index.js b/index.js
-index 46c5663..8b2fc07 100755
 --- a/index.js
 +++ b/index.js
-@@ -99,7 +99,7 @@ reporter.  (Note that some reporters write to files instead of stdout.)
+@@ -91,7 +91,7 @@
  
  if (require.main === module) {
    var type = process.argv[2]
