@@ -1,0 +1,50 @@
+From: =?utf-8?q?Bastien_Roucari=C3=A8s?= <rouca@debian.org>
+Date: Tue, 30 Jul 2024 08:34:20 +0000
+Subject: Ease transition by importing Parser var
+
+Forwarded: not-needed
+---
+ index.js         | 2 +-
+ lib/formatter.js | 2 +-
+ lib/runner.js    | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/index.js b/index.js
+index 7a626a5..6b5f0e3 100755
+--- a/index.js
++++ b/index.js
+@@ -8,7 +8,7 @@ Formatter.types = Object.keys(reporters).sort()
+ var Writable = require('stream').Writable
+ 
+ var Runner = require('./lib/runner.js')
+-var Parser = require('tap-parser')
++var { Parser } = require('tap-parser')
+ 
+ util.inherits(Formatter, Writable)
+ 
+diff --git a/lib/formatter.js b/lib/formatter.js
+index 91cd89f..bd9e8fb 100644
+--- a/lib/formatter.js
++++ b/lib/formatter.js
+@@ -5,7 +5,7 @@
+ 
+ var Duplex = require('stream').Duplex
+ var util = require('util')
+-var Parser = require('tap-parser')
++var { Parser } = require('tap-parser')
+ util.inherits(Formatter, Duplex)
+ module.exports = Formatter
+ 
+diff --git a/lib/runner.js b/lib/runner.js
+index 8671360..8832015 100644
+--- a/lib/runner.js
++++ b/lib/runner.js
+@@ -45,7 +45,7 @@ var util = require('util')
+ var Test = require('./test.js')
+ var Suite = require('./suite.js')
+ var Writable = require('stream').Writable
+-var Parser = require('tap-parser')
++var { Parser } = require('tap-parser')
+ 
+ // $1 = number, $2 = units
+ var timere = /^#\s*time=((?:0|[1-9][0-9]*?)(?:\.[0-9]+)?)(ms|s)?$/

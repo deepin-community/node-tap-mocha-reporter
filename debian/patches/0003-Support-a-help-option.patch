@@ -1,5 +1,4 @@
-From 2df81d586112bc41df819a60c88711098089d9b5 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Bastien=20ROUCARI=C3=88S?= <roucaries.bastien@gmail.com>
+From: =?utf-8?q?Bastien_ROUCARI=C3=88S?= <roucaries.bastien@gmail.com>
 Date: Tue, 22 Aug 2017 14:46:56 +0200
 Subject: Support a --help option
 
@@ -9,9 +8,11 @@ bug: https://github.com/lyroyce/mocha-tap-reporter/issues/5
  index.js | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/index.js b/index.js
+index b9623d7..7a626a5 100755
 --- a/index.js
 +++ b/index.js
-@@ -91,7 +91,7 @@
+@@ -91,7 +91,7 @@ reporter.  (Note that some reporters write to files instead of stdout.)
  
  if (require.main === module) {
    var type = process.argv[2]

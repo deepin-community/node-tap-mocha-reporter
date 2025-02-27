@@ -1,3 +1,10 @@
+node-tap-mocha-reporter (5.0.3+~2.0.2-3) unstable; urgency=medium
+
+  * Test reverse deps node-tap
+  * Ease transition of node-tap-reporter
+
+ -- Bastien Roucariès <rouca@debian.org>  Tue, 30 Jul 2024 08:31:04 +0000
+
 node-tap-mocha-reporter (5.0.3+~2.0.2-2) unstable; urgency=medium
 
   * Team upload

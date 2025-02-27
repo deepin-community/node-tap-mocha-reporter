@@ -14,7 +14,7 @@ Build-Depends: debhelper-compat (= 13)
  , node-js-yaml <!nocheck>
  , node-strip-ansi <!nocheck>
  , node-tap <!nocheck>
- , node-tap-parser (>= 11) <!nocheck>
+ , node-tap-parser (>> 11.0.2+~cs2.1.4-2~) <!nocheck>
 Standards-Version: 4.6.0
 Vcs-Browser: https://salsa.debian.org/js-team/node-tap-mocha-reporter
 Vcs-Git: https://salsa.debian.org/js-team/node-tap-mocha-reporter.git
@@ -32,7 +32,7 @@ Depends: ${misc:Depends}
  , node-glob
  , node-punycode
  , node-strip-ansi
- , node-tap-parser (>= 11)
+ , node-tap-parser (>> 11.0.2+~cs2.1.4-2~)
  , nodejs:any
 Provides: ${nodejs:Provides}
 Enhances: node-tap
